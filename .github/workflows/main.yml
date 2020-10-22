@@ -1,14 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   issues:
     types: [opened, edited]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -16,6 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: foo
-      uses: actions/turn-issues-to-posts-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
+      uses: wayou/turn-issues-to-posts-action@v1

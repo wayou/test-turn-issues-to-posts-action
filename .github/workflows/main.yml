@@ -12,5 +12,10 @@ jobs:
         uses: wayou/turn-issues-to-posts-action@v1
         with:
           branch-name: "master"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          created_at: ${{ github.event.issue.created_at }}
+          title: ${{ github.event.issue.title }}
+          body: ${{ github.event.issue.body }}
+          actor: ${{ github.actor }}
       - run: echo markdown-file ${{ steps.foo.outputs.markdown-file }}
         shell: bash

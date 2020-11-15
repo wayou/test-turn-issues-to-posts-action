@@ -11,7 +11,8 @@ jobs:
       - id: foo
         uses: wayou/turn-issues-to-posts-action@v1
         with:
-          branch-name: "master"
+          branch: "master"
+          dir: "_posts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           created_at: ${{ github.event.issue.created_at }}
           title: ${{ github.event.issue.title }}

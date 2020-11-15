@@ -1,15 +1,13 @@
+name: generate my blog posts
 on:
   issues:
     types: [opened, edited]
-
 jobs:
-  hello_world_job:
+  run:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
       - uses: actions/checkout@v2
-      - id: issus2posts
-        uses: wayou/turn-issues-to-posts-action@v1
+      - uses: wayou/turn-issues-to-posts-action@v1
         with:
           branch: "master"
           dir: "_posts"
@@ -18,5 +16,3 @@ jobs:
           title: ${{ github.event.issue.title }}
           body: ${{ github.event.issue.body }}
           actor: ${{ github.actor }}
-      - run: echo markdown-file ${{ steps.issus2posts.outputs.markdown-file }}
-        shell: bash

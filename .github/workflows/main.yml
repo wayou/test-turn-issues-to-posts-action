@@ -1,13 +1,14 @@
-on:
-  issues:
-    types: [opened, edited]
-
+on: [push]
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: wayou/turn-issues-to-posts-action@v1
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: wayou/turn-issues-to-posts-action@v1
+        with:
+          who-to-greet: "Mona the Octocat"
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash

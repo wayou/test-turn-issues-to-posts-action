@@ -13,6 +13,6 @@ jobs:
           dir: "_posts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           created_at: ${{ github.event.issue.created_at }}
-          title: ${{ github.event.issue.title }}
+          title: "${{ github.event.issue.title }}"
           body: ${{ github.event.issue.body }}
           actor: ${{ github.actor }}
